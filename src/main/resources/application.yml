@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Splink
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
