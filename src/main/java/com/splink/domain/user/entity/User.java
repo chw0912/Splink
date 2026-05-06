@@ -1,7 +1,15 @@
 package com.splink.domain.user.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -38,8 +46,12 @@ public class User {
     }
 
     public void update(String name, String password) {
-        if (name != null) this.name = name;
-        if (password != null) this.password = password;
+        if (name != null) {
+            this.name = name;
+        }
+        if (password != null) {
+            this.password = password;
+        }
     }
 
     public void delete() {
