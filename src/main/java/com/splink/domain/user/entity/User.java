@@ -1,4 +1,4 @@
-package com.splink.domain.user;
+package com.splink.domain.user.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

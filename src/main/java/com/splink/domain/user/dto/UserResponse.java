@@ -1,6 +1,6 @@
 package com.splink.domain.user.dto;
 
-import com.splink.domain.user.User;
+import com.splink.domain.user.entity.User;
 
 import java.time.LocalDateTime;
 

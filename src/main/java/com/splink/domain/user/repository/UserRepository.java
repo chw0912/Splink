@@ -1,5 +1,6 @@
-package com.splink.domain.user;
+package com.splink.domain.user.repository;
 
+import com.splink.domain.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,8 +1,10 @@
-package com.splink.domain.user;
+package com.splink.domain.user.service;
 
 import com.splink.domain.user.dto.UserCreateRequest;
 import com.splink.domain.user.dto.UserResponse;
 import com.splink.domain.user.dto.UserUpdateRequest;
+import com.splink.domain.user.entity.User;
+import com.splink.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;

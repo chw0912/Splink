@@ -11,28 +11,28 @@
 ### Java
 | 기술 | 상태 | 설명 |
 |------|------|------|
-| Java 21 기본 문법 | 🔲 | record, sealed class, pattern matching 등 |
-| Lombok | 🔲 | `@Getter`, `@Builder`, `@RequiredArgsConstructor` 등 보일러플레이트 제거 |
+| Java 21 기본 문법 | 🔄 | record, sealed class, pattern matching 등 |
+| Lombok | ✅ | `@Getter`, `@Builder`, `@RequiredArgsConstructor` 등 보일러플레이트 제거 |
 
 ### Spring Core
 | 기술 | 상태 | 설명 |
 |------|------|------|
-| IoC / DI | 🔲 | `@Component`, `@Service`, `@Repository`, 생성자 주입 |
-| Spring MVC | 🔲 | `@RestController`, `@RequestMapping`, `@PathVariable`, `@RequestBody` |
-| DTO 패턴 | 🔲 | 요청/응답 객체 분리, Entity 직접 노출 금지 |
+| IoC / DI | ✅ | `@Component`, `@Service`, `@Repository`, 생성자 주입 |
+| Spring MVC | ✅ | `@RestController`, `@RequestMapping`, `@PathVariable`, `@RequestBody` |
+| DTO 패턴 | ✅ | 요청/응답 객체 분리, Entity 직접 노출 금지 |
 
 ### Spring Data JPA
 | 기술 | 상태 | 설명 |
 |------|------|------|
-| Entity 설계 | 🔲 | `@Entity`, `@Id`, `@GeneratedValue`, `@Column` |
-| JpaRepository | 🔲 | 기본 CRUD 메서드, 쿼리 메서드 작성 |
-| H2 인메모리 DB | 🔲 | 개발용 설정, H2 콘솔 활용 |
+| Entity 설계 | ✅ | `@Entity`, `@Id`, `@GeneratedValue`, `@Column` |
+| JpaRepository | ✅ | 기본 CRUD 메서드, 쿼리 메서드 작성 |
+| H2 인메모리 DB | ✅ | 개발용 설정, H2 콘솔 활용 |
 
 ### 테스트
 | 기술 | 상태 | 설명 |
 |------|------|------|
-| JUnit 5 | 🔲 | `@Test`, `@BeforeEach`, `Assertions` |
-| Spring Boot Test | 🔲 | `@SpringBootTest`, `@WebMvcTest`, `MockMvc` |
+| JUnit 5 | ✅ | `@Test`, `@BeforeEach`, `Assertions` |
+| Spring Boot Test | 🔄 | `@SpringBootTest`, `@WebMvcTest`, `MockMvc` |
 
 ---
 
@@ -94,6 +94,6 @@
 
 | 기술 | 상태 | 설명 |
 |------|------|------|
-| Git Flow | 🔲 | feature / release / hotfix 브랜치 운영 |
-| GitHub Issues & PR | 🔲 | 이슈 기반 개발, PR 리뷰 프로세스 |
-| Gradle | 🔲 | 의존성 관리, 멀티 태스크 실행 |
+| Git Flow | ✅ | feature / release / hotfix 브랜치 운영 |
+| GitHub Issues & PR | ✅ | 이슈 기반 개발, PR 리뷰 프로세스 |
+| Gradle | 🔄 | 의존성 관리, 멀티 태스크 실행 |

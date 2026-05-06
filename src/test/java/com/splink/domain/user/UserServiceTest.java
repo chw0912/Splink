@@ -3,6 +3,8 @@ package com.splink.domain.user;
 import com.splink.domain.user.dto.UserCreateRequest;
 import com.splink.domain.user.dto.UserResponse;
 import com.splink.domain.user.dto.UserUpdateRequest;
+import com.splink.domain.user.repository.UserRepository;
+import com.splink.domain.user.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

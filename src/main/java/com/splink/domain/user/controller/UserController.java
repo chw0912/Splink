@@ -1,8 +1,9 @@
-package com.splink.domain.user;
+package com.splink.domain.user.controller;
 
 import com.splink.domain.user.dto.UserCreateRequest;
 import com.splink.domain.user.dto.UserResponse;
 import com.splink.domain.user.dto.UserUpdateRequest;
+import com.splink.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
