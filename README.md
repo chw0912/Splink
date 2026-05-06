@@ -73,10 +73,25 @@ src/main/java/com/splink
 
 ---
 
+## 브랜치 전략
+
+```
+main         # 배포용
+└── dev      # 개발 통합
+     ├── feat/#이슈번호-기능명
+     ├── fix/#이슈번호-기능명
+     └── refactor/#이슈번호-기능명
+```
+
+- 기능 브랜치는 `dev`에서 분기하고 `dev`로 PR
+- `main` ← `dev`는 배포 시점에만 merge
+
+---
+
 ## 기여 방법
 
 이 프로젝트는 기능 단위로 이슈를 등록하고 PR을 올리는 방식으로 관리됩니다.
 
 1. 작업 전 [이슈 등록](https://github.com/chw0912/Splink/issues/new/choose)
-2. 이슈 번호 기반 브랜치 생성 (`feat/#이슈번호-기능명`)
-3. 작업 완료 후 PR 생성 (`Closes #이슈번호` 포함)
+2. `dev` 브랜치에서 기능 브랜치 생성 (`feat/#이슈번호-기능명`)
+3. 작업 완료 후 `dev`로 PR 생성 (`Closes #이슈번호` 포함)

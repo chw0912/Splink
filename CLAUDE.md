@@ -51,6 +51,27 @@ com.splink
 
 각 도메인은 `Entity`, `Repository`, `Service`, `Controller`, `dto/` 패키지로 구성한다.
 
+## 브랜치 전략
+
+```
+main         # 배포용, dev에서만 merge
+└── dev      # 개발 통합 브랜치, feat/에서 merge
+     ├── feat/#1-user-crud
+     ├── feat/#2-sport-crud
+     └── feat/#3-meeting-crud
+```
+
+| 브랜치 | 용도 |
+|--------|------|
+| `main` | 안정된 배포 버전. 직접 커밋 금지 |
+| `dev` | 기능 통합. 기능 브랜치의 PR 대상 |
+| `feat/`, `fix/`, `refactor/` | 기능 단위 작업 브랜치 |
+
+- 기능 브랜치는 항상 `dev`에서 분기하고 `dev`로 PR
+- `main` ← `dev` merge는 배포 시점에만 진행
+
+---
+
 ## 개발 워크플로우
 
 기능 단위로 이슈를 등록하고 PR을 올리는 방식으로 진행한다.
