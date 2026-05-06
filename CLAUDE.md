@@ -40,16 +40,29 @@ H2 콘솔: `http://localhost:8080/h2-console` (JDBC URL: `jdbc:h2:mem:testdb`)
 ```
 com.splink
 ├── domain
-│   ├── user          # 사용자
-│   ├── meeting       # 번개 모임
-│   └── sport         # 스포츠 종목
+│   ├── user                # 사용자
+│   │   ├── controller/
+│   │   ├── entity/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   └── dto/
+│   ├── meeting             # 번개 모임
+│   │   ├── controller/
+│   │   ├── entity/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   └── dto/
+│   └── sport               # 스포츠 종목
+│       ├── controller/
+│       ├── entity/
+│       ├── repository/
+│       ├── service/
+│       └── dto/
 ├── global
-│   ├── config        # Spring 설정 (Security 등)
-│   └── exception     # 공통 예외 처리
+│   ├── config              # Spring 설정 (Security 등)
+│   └── exception           # 공통 예외 처리
 └── SplinkApplication.java
 ```
-
-각 도메인은 `Entity`, `Repository`, `Service`, `Controller`, `dto/` 패키지로 구성한다.
 
 ## 브랜치 전략
 
