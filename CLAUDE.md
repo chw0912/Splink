@@ -54,21 +54,25 @@ com.splink
 ## 브랜치 전략
 
 ```
-main         # 배포용, dev에서만 merge
-└── dev      # 개발 통합 브랜치, feat/에서 merge
-     ├── feat/#1-user-crud
-     ├── feat/#2-sport-crud
-     └── feat/#3-meeting-crud
+main             # 운영환경 배포 버전
+├── hotfix/      # 운영 긴급 버그 수정 → main + develop merge
+└── develop      # 다음 버전 기능 통합 브랜치
+     ├── feature/ # 기능 개발 → develop merge
+     └── release/ # 배포 준비 → main + develop merge
 ```
 
-| 브랜치 | 용도 |
-|--------|------|
-| `main` | 안정된 배포 버전. 직접 커밋 금지 |
-| `dev` | 기능 통합. 기능 브랜치의 PR 대상 |
-| `feat/`, `fix/`, `refactor/` | 기능 단위 작업 브랜치 |
+| 브랜치 | 분기 대상 | 머지 대상 | 용도 |
+|--------|----------|----------|------|
+| `main` | — | — | 운영환경 배포 버전. 직접 커밋 금지 |
+| `develop` | `main` | `main` (릴리즈 시) | 다음 버전 기능 통합. 기능 브랜치의 PR 대상 |
+| `feature/#이슈번호-설명` | `develop` | `develop` | 새로운 기능 개발 |
+| `release/#버전` | `develop` | `main` + `develop` | 배포 전 버전명·버그 수정 |
+| `hotfix/#이슈번호-설명` | `main` | `main` + `develop` | 운영 긴급 버그 수정 |
 
-- 기능 브랜치는 항상 `dev`에서 분기하고 `dev`로 PR
-- `main` ← `dev` merge는 배포 시점에만 진행
+- `feature` 브랜치는 항상 `develop`에서 분기하고 `develop`으로 PR
+- `release` 브랜치에서는 버전 정보 수정, 사소한 버그 수정만 허용
+- `hotfix` 브랜치 완료 후 반드시 `main`과 `develop` 양쪽에 merge
+- `main` ← `release`/`hotfix` merge는 태그(버전)를 함께 생성
 
 ---
 
@@ -88,16 +92,16 @@ gh issue create --title "[FEAT] 기능명" --body "..."
 이슈 번호를 브랜치명에 포함한다.
 
 ```bash
-git switch -c feat/#이슈번호-기능명
-# 예: feat/#1-user-crud
+git switch -c feature/#이슈번호-기능명
+# 예: feature/#1-user-crud
 ```
 
 브랜치 네이밍 규칙:
-| 유형 | 형식 |
-|------|------|
-| 기능 추가 | `feat/#이슈번호-설명` |
-| 버그 수정 | `fix/#이슈번호-설명` |
-| 리팩토링 | `refactor/#이슈번호-설명` |
+| 유형 | 분기 대상 | 형식 |
+|------|----------|------|
+| 기능 추가 | `develop` | `feature/#이슈번호-설명` |
+| 배포 준비 | `develop` | `release/#버전` |
+| 운영 버그 수정 | `main` | `hotfix/#이슈번호-설명` |
 
 ### 3. 커밋 컨벤션
 
