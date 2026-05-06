@@ -4,6 +4,7 @@ import com.splink.domain.user.dto.UserCreateRequest;
 import com.splink.domain.user.dto.UserResponse;
 import com.splink.domain.user.dto.UserUpdateRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,11 @@ public class UserService {
                 .password(request.password())
                 .name(request.name())
                 .build();
-        return UserResponse.from(userRepository.save(user));
+        try {
+            return UserResponse.from(userRepository.save(user));
+        } catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("이미 사용 중인 이메일입니다.");
+        }
     }
 
     public UserResponse findById(Long id) {
