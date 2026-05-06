@@ -96,4 +96,6 @@
 |------|------|------|
 | Git Flow | ✅ | feature / release / hotfix 브랜치 운영 |
 | GitHub Issues & PR | ✅ | 이슈 기반 개발, PR 리뷰 프로세스 |
+| GitHub Actions | ✅ | PR 시 CI 자동화 (Checkstyle + 테스트) |
+| Checkstyle | ✅ | IntelliJ 기본 스타일, 규칙 정의 및 예외 처리 |
 | Gradle | 🔄 | 의존성 관리, 멀티 태스크 실행 |

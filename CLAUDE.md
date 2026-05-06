@@ -20,8 +20,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # 빌드
 ./gradlew build
 
-# 애플리케이션 실행
-./gradlew bootRun
+# 애플리케이션 실행 (로컬 프로파일 적용)
+./gradlew bootRun --args='--spring.profiles.active=local'
 
 # 전체 테스트 실행
 ./gradlew test
@@ -31,6 +31,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # 단일 테스트 메서드 실행
 ./gradlew test --tests "com.splink.SomeTest.methodName"
+
+# 코드 스타일 검사
+./gradlew checkstyleMain checkstyleTest
+
+# 스타일 검사 + 테스트 한 번에
+./gradlew check
 ```
 
 H2 콘솔: `http://localhost:8080/h2-console` (JDBC URL: `jdbc:h2:mem:testdb`)
@@ -161,6 +167,25 @@ PR 본문에 `Closes #이슈번호` 를 포함해 이슈와 자동 연결한다.
 - [ ] `#` Refresh Token
 
 > 각 항목을 시작할 때 GitHub 이슈를 먼저 등록하고, `#` 자리에 이슈 번호를 기입한다.
+
+## 코드 스타일
+
+Checkstyle을 사용하며 IntelliJ 기본 스타일(4칸 들여쓰기, Oracle Java 관례)을 따른다.
+설정 파일: `config/checkstyle/checkstyle.xml`
+
+| 규칙 | 내용 |
+|------|------|
+| 들여쓰기 | 4칸 (탭 금지) |
+| 줄 길이 | 최대 120자 |
+| import | 와일드카드 금지 (static import 허용) |
+| 중괄호 | 단일 라인 if/for도 중괄호 필수 |
+| 네이밍 | 클래스 PascalCase, 메서드·변수 camelCase, 상수 UPPER_SNAKE_CASE |
+| 수정자 순서 | `public > protected > private > static > final` 순 |
+| 파일 끝 | 개행 필수 |
+
+- PR 생성 시 GitHub Actions에서 자동 검사 (`dev`, `main` 대상)
+- 테스트 메서드명은 한글+언더스코어 허용 (`suppressions.xml`)
+- 실패 시 빌드 리포트: `build/reports/checkstyle/`
 
 ## 핵심 도메인 규칙
 

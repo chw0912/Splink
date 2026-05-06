@@ -16,6 +16,8 @@
 | Database | H2 (개발) / MySQL (예정) |
 | Build | Gradle |
 | Test | JUnit 5 |
+| Code Style | Checkstyle (IntelliJ 기본 스타일) |
+| CI | GitHub Actions |
 
 ---
 
@@ -108,6 +110,30 @@ main             # 운영환경 배포 버전
 
 ---
 
+## CI / 코드 스타일
+
+PR을 열면 GitHub Actions가 자동으로 아래 검사를 실행합니다.
+
+| 단계 | 내용 |
+|------|------|
+| Checkstyle | IntelliJ 기본 스타일 준수 여부 확인 |
+| Test | 전체 테스트 통과 여부 확인 |
+
+로컬에서 미리 확인하는 방법:
+
+```bash
+# 스타일 검사
+./gradlew checkstyleMain checkstyleTest
+
+# 테스트
+./gradlew test
+
+# 한 번에 실행
+./gradlew check
+```
+
+---
+
 ## 기여 방법
 
 이 프로젝트는 기능 단위로 이슈를 등록하고 PR을 올리는 방식으로 관리됩니다.
@@ -115,3 +141,4 @@ main             # 운영환경 배포 버전
 1. 작업 전 [이슈 등록](https://github.com/chw0912/Splink/issues/new/choose)
 2. `develop` 브랜치에서 기능 브랜치 생성 (`feature/#이슈번호-기능명`)
 3. 작업 완료 후 `develop`으로 PR 생성 (`Closes #이슈번호` 포함)
+4. PR 생성 시 Checkstyle + 테스트 자동 실행 — 통과해야 merge 가능
