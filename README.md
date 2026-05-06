@@ -62,12 +62,27 @@ H2 콘솔: `http://localhost:8080/h2-console`
 ```
 src/main/java/com/splink
 ├── domain
-│   ├── user          # 회원
-│   ├── meeting       # 번개 모임
-│   └── sport         # 스포츠 종목
+│   ├── user                # 회원
+│   │   ├── controller/
+│   │   ├── entity/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   └── dto/
+│   ├── meeting             # 번개 모임
+│   │   ├── controller/
+│   │   ├── entity/
+│   │   ├── repository/
+│   │   ├── service/
+│   │   └── dto/
+│   └── sport               # 스포츠 종목
+│       ├── controller/
+│       ├── entity/
+│       ├── repository/
+│       ├── service/
+│       └── dto/
 ├── global
-│   ├── config        # 설정
-│   └── exception     # 공통 예외 처리
+│   ├── config              # 설정
+│   └── exception           # 공통 예외 처리
 └── SplinkApplication.java
 ```
 
